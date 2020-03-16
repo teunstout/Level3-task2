@@ -8,6 +8,8 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.portals_layout.view.*
 
+const val PORTAL_EXTRA = "PORTAL_EXTRA"
+
 class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAdapter.ViewHolder>() {
 
     inner class ViewHolder(textview : View): RecyclerView.ViewHolder(textview) {
@@ -15,10 +17,7 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
             itemView.txtHyperlink.text = portal.link
 
             itemView.setOnClickListener {
-                val url: String = portal.link
-                val builder = CustomTabsIntent.Builder()
-                val customTabsIntent = builder.build()
-                customTabsIntent.launchUrl(it.context, Uri.parse(url))
+                openChromeTab(portal.link, itemView)
             }
         }
     }
@@ -35,5 +34,11 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(portals[position])
+    }
+
+    private fun openChromeTab(urlString: String, itemview: View){
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(itemview.context, Uri.parse(urlString))
     }
 }

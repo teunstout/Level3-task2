@@ -1,6 +1,10 @@
 package com.example.studentportal
 
-data class Portal(val title: String,val link: String) {
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Portal(val title: String, val link: String) : Parcelable {
     companion object {
         val links = arrayOf(
             "https://www.android-development.app/level-3-multi-screen-app/level3-task2",

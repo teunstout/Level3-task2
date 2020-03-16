@@ -6,4 +6,6 @@
     <string name="linkPortal">Link</string>
     <string name="addPortal">ADD PORTAL</string>
     <string name="httpLinkAutofill">http://</string>
+    <string name="mustStartWithHttp">the start of the url must contain http://</string>
+    <string name="emptyString">Did you fill in the %s</string>
 </resources>
