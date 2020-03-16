@@ -5,4 +5,5 @@
     <string name="titlePortal">Title</string>
     <string name="linkPortal">Link</string>
     <string name="addPortal">ADD PORTAL</string>
+    <string name="httpLinkAutofill">http://</string>
 </resources>

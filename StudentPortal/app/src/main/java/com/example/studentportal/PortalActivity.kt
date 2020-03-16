@@ -18,6 +18,7 @@ class PortalActivity : AppCompatActivity() {
 
     private fun initView() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        savePortal
     }
 
 }

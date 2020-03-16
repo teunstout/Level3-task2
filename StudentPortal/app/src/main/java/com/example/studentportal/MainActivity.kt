@@ -1,6 +1,7 @@
 package com.example.studentportal
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.util.LogPrinter
@@ -8,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
@@ -39,5 +41,15 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             startActivity(Intent(this, PortalActivity::class.java))
         }
+
+
     }
+
+    fun googleTab(uriString: String) {
+        val builder = CustomTabsIntent.Builder()
+        val customTab = builder.build()
+        customTab.launchUrl(this@MainActivity, Uri.parse(uriString))
+    }
+
+
 }

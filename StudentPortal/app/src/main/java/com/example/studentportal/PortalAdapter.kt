@@ -1,8 +1,10 @@
 package com.example.studentportal
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.portals_layout.view.*
 
@@ -11,6 +13,13 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
     inner class ViewHolder(textview : View): RecyclerView.ViewHolder(textview) {
         fun bind(portal: Portal){
             itemView.txtHyperlink.text = portal.link
+
+            itemView.setOnClickListener {
+                val url: String = portal.link
+                val builder = CustomTabsIntent.Builder()
+                val customTabsIntent = builder.build()
+                customTabsIntent.launchUrl(it.context, Uri.parse(url))
+            }
         }
     }
 
