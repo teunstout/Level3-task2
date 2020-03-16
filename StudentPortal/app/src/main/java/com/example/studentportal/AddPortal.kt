@@ -1,16 +1,18 @@
 package com.example.studentportal
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 
 import kotlinx.android.synthetic.main.activity_portal.*
 
-class PortalActivity : AppCompatActivity() {
-    
+const val EXTRA_PORTAL = "EXTRA_PORTAL"
+
+class AddPortal : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_portal)
@@ -30,10 +32,9 @@ class PortalActivity : AppCompatActivity() {
         val inputsValidTrue = checkInputsOfView(urlInput, titleInput)
 
         if (inputsValidTrue) {
-            val portalActivityIntent = Intent(this, PortalAdapter::class.java)
-                .putExtra(PORTAL_EXTRA, Portal(titleInput, urlInput))
-
-            startActivity(portalActivityIntent)
+            val portalActivityIntent = Intent().putExtra(EXTRA_PORTAL, Portal(titleInput, urlInput))
+            setResult(Activity.RESULT_OK, portalActivityIntent)
+            finish()
         }
 
     }

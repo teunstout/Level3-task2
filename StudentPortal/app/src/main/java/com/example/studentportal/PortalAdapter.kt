@@ -8,8 +8,6 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.portals_layout.view.*
 
-const val PORTAL_EXTRA = "PORTAL_EXTRA"
-
 class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAdapter.ViewHolder>() {
 
     inner class ViewHolder(textview : View): RecyclerView.ViewHolder(textview) {

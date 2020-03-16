@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PortalActivity"
+            android:name=".AddPortal"
             android:label="@string/title_activity_portal"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
