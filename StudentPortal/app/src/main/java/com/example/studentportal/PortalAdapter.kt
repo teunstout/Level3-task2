@@ -12,11 +12,8 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
 
     inner class ViewHolder(textview : View): RecyclerView.ViewHolder(textview) {
         fun bind(portal: Portal){
+            itemView.txtTitle.text = portal.title
             itemView.txtHyperlink.text = portal.link
-
-            itemView.setOnClickListener {
-                openChromeTab(portal.link, itemView)
-            }
         }
     }
 
@@ -32,11 +29,5 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(portals[position])
-    }
-
-    private fun openChromeTab(urlString: String, itemview: View){
-        val builder = CustomTabsIntent.Builder()
-        val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(itemview.context, Uri.parse(urlString))
     }
 }

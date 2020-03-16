@@ -43,7 +43,6 @@ class AddPortal : AppCompatActivity() {
      * check if the inputs are filled in correct
      */
     private fun checkInputsOfView(url: String, title: String): Boolean {
-        var stringWithoutHttp = "";
 
         // check if url is empty
         if (title.isEmpty()) {
@@ -58,7 +57,7 @@ class AddPortal : AppCompatActivity() {
         }
 
         // check if after http there is a string
-        stringWithoutHttp = url.split("http://")[1]
+        val stringWithoutHttp = url.split("http://")[1]
         if (stringWithoutHttp.isEmpty()) {
             toastMessage(getString(R.string.emptyString, "URL"))
             return false
@@ -76,7 +75,7 @@ class AddPortal : AppCompatActivity() {
 
     // Back button works
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item?.itemId) {
+        return when (item.itemId) {
             android.R.id.home -> {
                 finish()
                 true

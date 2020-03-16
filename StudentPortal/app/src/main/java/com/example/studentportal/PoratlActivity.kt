@@ -33,14 +33,6 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             startActivity()
         }
-
-        val portal = intent.getParcelableExtra<Portal>(EXTRA_PORTAL)
-
-        if (portal != null){
-            urlList.add(portal)
-        }
-
-        portalAdapter.notifyDataSetChanged()
     }
 
     private fun startActivity() {
