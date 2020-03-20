@@ -32,6 +32,7 @@ class AddPortal : AppCompatActivity() {
         val inputsValidTrue = checkInputsOfView(urlInput, titleInput)
 
         if (inputsValidTrue) {
+
             val portalActivityIntent = Intent().putExtra(EXTRA_PORTAL, Portal(titleInput, urlInput))
             setResult(Activity.RESULT_OK, portalActivityIntent)
             finish()
@@ -51,15 +52,21 @@ class AddPortal : AppCompatActivity() {
         }
 
         // check if url starts with http
-        if (!url.startsWith("http://")) {
+        if (!url.startsWith("http://www.")) {
             toastMessage(getString(R.string.mustStartWithHttp))
             return false
         }
+        val splittedArray = url.split(".") // should be array of 3 after split
 
         // check if after http there is a string
-        val stringWithoutHttp = url.split("http://")[1]
-        if (stringWithoutHttp.isEmpty()) {
+        if (splittedArray[1].isEmpty()) {
             toastMessage(getString(R.string.emptyString, "URL"))
+            return false
+        }
+
+        // check if it ends with domain ex. .com
+        if (splittedArray[2].isEmpty()) {
+            toastMessage(getString(R.string.mustEndWithHttp))
             return false
         }
 
@@ -70,10 +77,12 @@ class AddPortal : AppCompatActivity() {
      * Toast message; message is the one you give with it
      */
     private fun toastMessage(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    // Back button works
+    /**
+     * Button to go back
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {

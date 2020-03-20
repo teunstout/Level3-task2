@@ -10,6 +10,7 @@
 <!--    autofill url-->
     <string name="httpLinkAutofill">http://</string>
 <!--    messages for toast-->
-    <string name="mustStartWithHttp">the start of the url must contain http://</string>
+    <string name="mustStartWithHttp">the start of the url must contain http://www.</string>
+    <string name="mustEndWithHttp">the url with something like .com</string>
     <string name="emptyString">Did you fill in the %s</string>
 </resources>

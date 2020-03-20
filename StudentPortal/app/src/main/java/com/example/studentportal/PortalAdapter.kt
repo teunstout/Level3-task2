@@ -14,6 +14,7 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
         fun bind(portal: Portal){
             itemView.txtTitle.text = portal.title
             itemView.txtHyperlink.text = portal.link
+
         }
     }
 
