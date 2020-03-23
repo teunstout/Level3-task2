@@ -14,11 +14,11 @@ class PortalAdapter(val portals: List<Portal> ) : RecyclerView.Adapter<PortalAda
         fun bind(portal: Portal){
             itemView.txtTitle.text = portal.title
             itemView.txtHyperlink.text = portal.link
-            // chrome tabs
+
             itemView.setOnClickListener{
-                val builder = CustomTabsIntent.Builder()
-                val customTabsIntent = builder.build()
-                customTabsIntent.launchUrl(itemView.context, Uri.parse(portal.link))
+                val builder = CustomTabsIntent.Builder() // set the builder
+                val customTabsIntent = builder.build() // build chrome tab intent with builder
+                customTabsIntent.launchUrl(itemView.context, Uri.parse(portal.link)) // launch intent with url
             }
         }
     }

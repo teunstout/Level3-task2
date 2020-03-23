@@ -1,15 +1,19 @@
 <resources>
-<!--    titles-->
+    <!--    titles-->
     <string name="app_name">Student Portal</string>
     <string name="title_activity_portal">Create a portal</string>
-<!--hints-->
+
+    <!--hints-->
     <string name="titlePortal">Title</string>
     <string name="linkPortal">Link</string>
-<!--    portal button-->
+
+    <!--    portal button-->
     <string name="addPortal">ADD PORTAL</string>
-<!--    autofill url-->
+
+    <!--    autofill url-->
     <string name="httpLinkAutofill">http://</string>
-<!--    messages for toast-->
+
+    <!--    messages for toast-->
     <string name="mustStartWithHttp">the start of the url must contain http://www.</string>
     <string name="mustEndWithHttp">the url with something like .com</string>
     <string name="emptyString">Did you fill in the %s</string>

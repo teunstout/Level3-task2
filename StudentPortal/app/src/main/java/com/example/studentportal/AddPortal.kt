@@ -17,22 +17,19 @@ class AddPortal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_portal)
         setSupportActionBar(toolbar)
-
-        initView()
-    }
-
-    private fun initView() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         savePortal.setOnClickListener { onSavePortal() }
     }
 
+    /**
+     * save the portal
+     */
     private fun onSavePortal() {
         val titleInput = txtTitleUrl.text.toString()
         val urlInput = inHttp.text.toString()
-        val inputsValidTrue = checkInputsOfView(urlInput, titleInput)
 
-        if (inputsValidTrue) {
-
+        if (checkInputsOfView(urlInput, titleInput)) {
             val portalActivityIntent = Intent().putExtra(EXTRA_PORTAL, Portal(titleInput, urlInput))
             setResult(Activity.RESULT_OK, portalActivityIntent)
             finish()
@@ -44,7 +41,6 @@ class AddPortal : AppCompatActivity() {
      * check if the inputs are filled in correct
      */
     private fun checkInputsOfView(url: String, title: String): Boolean {
-
         // check if url is empty
         if (title.isEmpty()) {
             toastMessage(getString(R.string.emptyString, "Title"))
@@ -81,7 +77,7 @@ class AddPortal : AppCompatActivity() {
     }
 
     /**
-     * Button to go back
+     * Go back by finishing intent
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
